@@ -8,7 +8,7 @@ class Matrix
 {
 public:
 
-	Matrix(int width, int length);
+	Matrix(int width, int length, float seed);
 	virtual ~Matrix();
 
 	void DrawMatrix(sf::RenderWindow& window);
@@ -19,14 +19,10 @@ public:
 	std::vector<Cell> GetNeighboursOfCell(Cell cell);
 	std::vector<Cell> GetAliveCells(Matrix& matrix);
 	std::vector<Cell> GetDeadCells(Matrix& matrix);
-	void FillCellLists(Matrix& matrix, std::vector<Cell>& deadCells, std::vector<Cell>& aliveCells);
-
 
 	int width;
 	int length;
 	std::vector<std::vector<Cell>> matrix;
-	std::vector<Cell> aliveCells;
-	std::vector<Cell> deadCells;
 
 	sf::Vector2f tileSize{ 30.f, 30.f };
 

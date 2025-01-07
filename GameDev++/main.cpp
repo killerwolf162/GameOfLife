@@ -1,26 +1,31 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <cmath>
-
 #include "Matrix.h"
-#include "GameOfLifeManager.h"
+#include "StandardRules.h"
+#include "Context.h"
 
 sf::Vector2u windowSize{ 750,750 };
 constexpr unsigned TPS = 60;
 const sf::Time timePerUpdate = sf::seconds(1.0f / float(TPS));
 sf::Vector2f tileSize(30.f, 30.f);
 
-void ResetList(std::vector<Cell>& deadList, std::vector<Cell>& aliveList, Matrix& matrix)
+// Rule Sets
+// StandardRules
+// Rule1
+// Rule2
+
+void RunGame(Matrix& matrix)
 {
-	matrix.deadCells.clear();
-	matrix.aliveCells.clear();
-	matrix.FillCellLists(matrix, matrix.deadCells, matrix.aliveCells);
+	Context context(std::make_unique<StandardRules>()); // Change Rules for different generation
+	context.PerformLogic(matrix);
 }
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Make a grid!");
+	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Cellular Automaton!");
 	window.setPosition(sf::Vector2i{ window.getPosition().x,0 });
+	window.setFramerateLimit(60);
 
 	auto view = window.getDefaultView();
 
@@ -29,10 +34,9 @@ int main()
 		= sf::Time::Zero;
 	sf::Time FrameTime = sf::seconds(1.f / 60.f);
 
-	Matrix matrix = Matrix(25, 25);
-	GameOfLifeManager manager;
-
-	matrix.FillCellLists(matrix, matrix.deadCells, matrix.aliveCells);
+	Matrix matrix = Matrix(25, 25, 50.f); // change seed for different starting pattern
+	Context context;
+	
 
 	while (window.isOpen())
 	{
@@ -49,21 +53,9 @@ int main()
 				view.setSize(static_cast<float>(event.size.width), static_cast<float>(event.size.height));
 			}
 		}
-
 		window.clear();
-		manager.PerformAlgorithm(matrix); // changes made in algorithms not saving, missing reference somewhere (?)
-		ResetList(matrix.deadCells, matrix.aliveCells, matrix);
-
-		for (auto& cell : matrix.aliveCells) // checks matrix and paints all scells black or white
-		{
-			matrix.GetCell(cell.xIndex, cell.yIndex).ChangeColor(sf::Color::White);
-		}
-		for (auto& cell : matrix.deadCells)
-		{
-			matrix.GetCell(cell.xIndex, cell.yIndex).ChangeColor(sf::Color::Black);
-		}
-
-		matrix.DrawMatrix(window);
+		RunGame(matrix);
+		matrix.DrawMatrix(window);		
 		window.display();
 	}
 

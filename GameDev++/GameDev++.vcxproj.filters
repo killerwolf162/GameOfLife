@@ -24,22 +24,13 @@
     <ClCompile Include="Cell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CellDeathStrategy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellStayAliveStrategy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Strategy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CellBirthStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Context.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameOfLifeManager.cpp">
+    <ClCompile Include="StandardRules.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,19 +44,10 @@
     <ClInclude Include="Strategy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CellDeathStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CellStayAliveStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CellBirthStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameOfLifeManager.h">
+    <ClInclude Include="StandardRules.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

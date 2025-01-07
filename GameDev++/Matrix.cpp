@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random>
 
-Matrix::Matrix(int width, int length)
+Matrix::Matrix(int width, int length, float seed)
 {
 	
 	this->width = width;
@@ -11,7 +11,7 @@ Matrix::Matrix(int width, int length)
 	{
 		for (auto y = 0; y < width; y++)
 		{
-			int randomNum = rand() % 100;
+			float randomNum = rand() % 100;
 
 			matrix.emplace_back();
 			auto tile = new Cell;
@@ -24,7 +24,7 @@ Matrix::Matrix(int width, int length)
 			tile->yPos = y * tileSize.y;
 			tile->xIndex = x;
 			tile->yIndex = y;
-			if (randomNum > 50)
+			if (randomNum > seed)
 				tile->isAlive = true;
 			matrix[x].push_back(*tile);
 		}
@@ -122,25 +122,11 @@ std::vector<Cell> Matrix::GetDeadCells(Matrix& matrix)
 	{
 		for (auto cell : index)
 		{
-			if (cell.isAlive == true)
+			if (cell.isAlive != true)
 				deadCells.emplace_back(cell);
 		}
 	}
 	return deadCells;
-}
-
-void Matrix::FillCellLists(Matrix& matrix, std::vector<Cell>& deadCells, std::vector<Cell>& aliveCells)
-{
-	for (auto index : matrix.matrix)
-	{
-		for (auto cell : index)
-		{
-			if (cell.isAlive == true)
-				aliveCells.emplace_back(cell);
-			if (cell.isAlive == false)
-				deadCells.emplace_back(cell);
-		}
-	}
 }
 
 std::ostream& operator<<(std::ostream& os, Matrix matrix)

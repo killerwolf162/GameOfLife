@@ -148,23 +148,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
-    <ClCompile Include="CellBirthStrategy.cpp" />
-    <ClCompile Include="CellDeathStrategy.cpp" />
-    <ClCompile Include="CellStayAliveStrategy.cpp" />
     <ClCompile Include="Context.cpp" />
-    <ClCompile Include="GameOfLifeManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="StandardRules.cpp" />
     <ClCompile Include="Strategy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
-    <ClInclude Include="CellBirthStrategy.h" />
-    <ClInclude Include="CellDeathStrategy.h" />
-    <ClInclude Include="CellStayAliveStrategy.h" />
     <ClInclude Include="Context.h" />
-    <ClInclude Include="GameOfLifeManager.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="StandardRules.h" />
     <ClInclude Include="Strategy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
