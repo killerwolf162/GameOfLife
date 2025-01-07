@@ -33,6 +33,12 @@
     <ClCompile Include="StandardRules.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DayAndNight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="B25_S13.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
@@ -48,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StandardRules.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DayAndNight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="B25_S13.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,8 @@
 #include <cmath>
 #include "Matrix.h"
 #include "StandardRules.h"
+#include "DayAndNight.h"
+#include "B25_S13.h"
 #include "Context.h"
 
 sf::Vector2u windowSize{ 750,750 };
@@ -12,12 +14,12 @@ sf::Vector2f tileSize(30.f, 30.f);
 
 // Rule Sets
 // StandardRules
-// Rule1
-// Rule2
+// DayAndNight
+// B25_S13
 
-void RunGame(Matrix& matrix)
+void Run(Matrix& matrix)
 {
-	Context context(std::make_unique<StandardRules>()); // Change Rules for different generation
+	Context context(std::make_unique<B25_S13>()); // Change Rules for different generation
 	context.PerformLogic(matrix);
 }
 
@@ -34,9 +36,7 @@ int main()
 		= sf::Time::Zero;
 	sf::Time FrameTime = sf::seconds(1.f / 60.f);
 
-	Matrix matrix = Matrix(25, 25, 50.f); // change seed for different starting pattern
-	Context context;
-	
+	Matrix matrix = Matrix(25, 25, 12); // change percentage of live starting cells 1-100
 
 	while (window.isOpen())
 	{
@@ -54,7 +54,7 @@ int main()
 			}
 		}
 		window.clear();
-		RunGame(matrix);
+		Run(matrix);
 		matrix.DrawMatrix(window);		
 		window.display();
 	}

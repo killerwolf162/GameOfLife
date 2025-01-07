@@ -147,16 +147,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="B25_S13.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="DayAndNight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="StandardRules.cpp" />
     <ClCompile Include="Strategy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="B25_S13.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Context.h" />
+    <ClInclude Include="DayAndNight.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="StandardRules.h" />
     <ClInclude Include="Strategy.h" />
